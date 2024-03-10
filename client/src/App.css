@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.section-six-bg{
+  background:  linear-gradient(262deg, rgba(175, 146, 146, 0) 38%, rgba(0, 0, 0, 1) 57%), url("./assets/LandingSection/our\ number/orange-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+  height: 500px;
+}
+
+.section-six-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.224), rgba(61, 56, 56, 0.216)),
+                        url("http://spinkraft.com/images/our-numbers/orange-background.jpg")
+}
+
