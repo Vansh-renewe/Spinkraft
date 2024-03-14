@@ -1,56 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const ProductListPage = () => {
-  const data = [
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-one.jpg",
-      brand: "Axitec",
-      productName: "AXIworldpremium XXL HC",
-      productType: "Solar PV Module",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-one.jpg",
-      brand: "Axitec",
-      productName: "AXIworldpower",
-      productType: "Solar PV Module",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-two.jpg",
-      brand: "WattPower",
-      productName: "SUN2000-200KTL-H2",
-      productType: "Solar Inverter",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-two.jpg",
-      brand: "WattPower",
-      productName: "SUN2000-300KTL-H2",
-      productType: "Solar Inverter",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-five.jpg",
-      brand: "ZIZI+",
-      productName: "P7W",
-      productType: "EV Charger",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-    {
-      imgSrc: "http://spinkraft.com/images/product-img/product-five.jpg",
-      brand: "ZIZI+",
-      productName: "P22F",
-      productType: "EV Charger",
-      detailsLink: "http://spinkraft.com/products/show",
-    },
-  ];
-
   const [filterNav, setFilterNav] = useState(false);
   const [Category, setCategory] = useState([]);
   const [Brand, setBrand] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/api/Products");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
 
@@ -393,7 +363,7 @@ const ProductListPage = () => {
                 </svg>
               </div>
               <div className="grid sm:grid-cols-2  mt-6  xl:grid-cols-3 gap-14">
-                {data.map((product, index) => (
+                {products.map((product, index) => (
                   <div key={index} className="group/photo overflow-hidden">
                     <img
                       src={product.imgSrc}

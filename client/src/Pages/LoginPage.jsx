@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import contact from "../assets/Contact-us/contact-us-bg.jpg";
+import cover from "../assets/Contact-us/contact-us-bg.jpg";
 import logoDark from "../assets/branding/logo-dark.png";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const postLoginDetails = () => {
-    fetch("http://localhost:4000/api/login", {
+    fetch("http://localhost:4000/api/auth/login", {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -28,8 +28,7 @@ const LoginPage = () => {
           alert(data.error_message);
         } else {
           console.log(data.data);
-          localStorage.setItem("username", data.data.username);
-          //👇🏻 Navigates to Home
+          alert(data.message);
           navigate("/");
         }
       })
@@ -51,9 +50,9 @@ const LoginPage = () => {
           <div className="mt-32 grid  lg:grid-cols-2 gap-10 ">
             <section className="h-full w-full relative">
               <img
-                src={contact}
+                src={cover}
                 className="object-cover w-full h-full object-center"
-                alt="contact us bg"
+                alt="cover bg"
               />
               <div className="absolute top-0 w-full h-full bg-theme2-light  flex justify-center bg-opacity-80 text-white items-center">
                 <div>

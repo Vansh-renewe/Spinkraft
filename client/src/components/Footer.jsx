@@ -124,7 +124,7 @@ function Footer() {
           <div className="w-full h-[1px] mt-9 bg-gray-600"></div>
           <div className="grid md:flex justify-between gap-y-6 mt-11 text-gray-400">
             <div className="text-lg">
-              Spinkraft Ventures © 2023. All Rights Reserved.
+              Spinkraft Ventures © 2024. All Rights Reserved.
             </div>
             <div>
               <div className="text-xl font-bold">Get in Touch</div>

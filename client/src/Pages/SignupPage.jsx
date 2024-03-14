@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import contact from "../assets/Contact-us/contact-us-bg.jpg";
+import cover from "../assets/Contact-us/contact-us-bg.jpg";
 import logoDark from "../assets/branding/logo-dark.png";
 
 const SignupPage = () => {
@@ -13,12 +13,12 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const postSignUpDetails = () => {
-    fetch("http://localhost:4000/api/SignUp", {
+    fetch("http://localhost:4000/api/auth/SignUp", {
       method: "POST",
       body: JSON.stringify({
+        username,
         email,
         password,
-        username,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const SignupPage = () => {
           alert(data.error_message);
         } else {
           alert(data.message);
-          navigate("/");
+          navigate("/login");
         }
       })
       .catch((err) => console.error(err));
@@ -54,9 +54,9 @@ const SignupPage = () => {
           <div className="mt-32 grid  lg:grid-cols-2 gap-10 ">
             <section className="h-full w-full relative">
               <img
-                src={contact}
+                src={cover}
                 className="object-cover w-full h-full object-center"
-                alt="contact us bg"
+                alt="cover bg"
               />
               <div className="absolute top-0 w-full h-full bg-theme2-light  flex justify-center bg-opacity-80 text-white items-center">
                 <div>

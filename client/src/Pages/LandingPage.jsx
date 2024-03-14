@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import heroSection from "../assets/LandingSection/hero-section/hero-section-img.jpg";
-import logoLight from "../assets/LandingSection/branding/logo-light.png";
+import logoLight from "../assets/branding/logo-light.png";
 import overviewImg from "../assets/LandingSection/overview/overview-img.jpg";
 import axiTech from "../assets/LandingSection/portfolio/axitech.png";
 import wattPower from "../assets/LandingSection/portfolio/wattpower.png";
