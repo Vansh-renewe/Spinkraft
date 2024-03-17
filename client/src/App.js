@@ -8,6 +8,7 @@ import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import AdminLoginPage from "./Pages/AdminLoginPage";
 import AdminDashboard from "./Pages/AdminDashboard";
+import ProductDetailPage from "./Pages/ProductDetailPage";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route path="/contact-us" element={<ContactPage />}></Route>
           <Route path="/Login" element={<LoginPage />}></Route>
           <Route path="/Signup" element={<SignupPage />}></Route>
+          <Route path={`/product/:productId`} element={<ProductDetailPage />} />
           <Route path="/adminLogin" element={<AdminLoginPage />}></Route>
           <Route path="/adminDashboard" element={<AdminDashboard />}></Route>
         </Routes>
