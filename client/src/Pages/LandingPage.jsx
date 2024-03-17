@@ -80,7 +80,7 @@ function LandingPage() {
               </button>
             </Link>
           </div>
-        </section>{" "}
+        </section>
         {/* END: Hero Section <!-- who we are start -->*/}
         <section className="bg-theme-dark text-white py-14">
           <div className="container mx-auto px-4 grid grid-cols-1 gap-x-9 md:grid-cols-3 gap-y-6 ">
@@ -141,7 +141,7 @@ function LandingPage() {
               Click here to calculate your electricity load
             </div>
           </div>
-        </section>{" "}
+        </section>
         {/* solar calculator btn end <!--overview start -->*/}
         <div className="mt-24">
           <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-x-5 gap-y-9 items-center min-h-[400px]">
@@ -432,25 +432,13 @@ function LandingPage() {
         {/* our number end <!-- Swiper -->*/}
         <div className="container mx-auto px-4 pt-32">
           <div className="text-center">
-            <div className="yellow-line text-4xl inline-block font-bold">
+            <div className="md:text-2xl text-4xl font-bold">
               Our Professional team
             </div>
           </div>
-          <div
-            className="swiper-wrapper overflow-visible pt-[100px] 
-            transitionDuration-0ms
-            transform-translate3d(-822px, 0px, 0px)
-            transitionDelay-0ms text-left"
-            id="swiper-wrapper-3b11053116c2921ac"
-            aria-live="off"
-            style={{}}
-          >
-            <div
-              className="swiper-slide"
-              style={{ width: "381px", marginRight: "30px" }}
-              role="group"
-              aria-label="1 / 4"
-            >
+
+          <div class="grid lg:grid-cols-2 gap-y-8 text-justify pt-100 md:grid-cols-4 gap-x-8">
+            <div>
               <div className="flex gap-x-7">
                 <div className="rounded-full overflow-hidden md:w-36 md:h-36 w-16 h-16 sm:w-24 sm:h-24 border-4 border-theme2-light">
                   <img
@@ -522,12 +510,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-            <div
-              className="swiper-slide "
-              style={{ width: "381px", marginRight: "30px" }}
-              role="group"
-              aria-label="2 / 4"
-            >
+            <div>
               <div className="flex gap-x-7">
                 <div className="rounded-full overflow-hidden md:w-36 md:h-36 w-16 h-16 border-4 border-theme2-light">
                   <img
@@ -599,12 +582,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-            <div
-              className="swiper-slide"
-              style={{ width: "381px", marginRight: "30px" }}
-              role="group"
-              aria-label="3 / 4"
-            >
+            <div>
               <div className="flex gap-x-7">
                 <div className="rounded-full overflow-hidden md:w-36 md:h-36 w-16 h-16 border-4 border-theme2-light">
                   <img
@@ -676,12 +654,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-            <div
-              className="swiper-slide"
-              role="group"
-              aria-label="4 / 4"
-              style={{ width: "381px", marginRight: "30px" }}
-            >
+            <div>
               <div className="flex gap-x-7">
                 <div className="rounded-full overflow-hidden md:w-36 md:h-36 w-16 h-16 border-4 border-theme2-light">
                   <img
@@ -752,30 +725,6 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-            {/* Add other slides similarly */}
-            <div className="absolute top-[20px] w-[100px] h-[100px] right-0 text-sm z-[999]">
-              <div
-                className="swiper-button-next"
-                tabIndex="0"
-                role="button"
-                aria-label="Next slide"
-                aria-controls="swiper-wrapper-3b11053116c2921ac"
-                aria-disabled="false"
-              ></div>
-              <div
-                className="swiper-button-prev"
-                tabIndex="0"
-                role="button"
-                aria-label="Previous slide"
-                aria-controls="swiper-wrapper-3b11053116c2921ac"
-                aria-disabled="false"
-              ></div>
-            </div>
-            <span
-              className="swiper-notification"
-              aria-live="assertive"
-              aria-atomic="true"
-            ></span>
           </div>
         </div>
         {/* quota start <!-- swiper end -->*/}

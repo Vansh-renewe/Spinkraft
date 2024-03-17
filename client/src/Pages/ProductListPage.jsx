@@ -47,6 +47,11 @@ const ProductListPage = () => {
     setFilterNav(true);
   };
   console.log(Category, Brand);
+  const filteredProducts = products
+    .filter((product) =>
+      Category[0] ? product.productType === Category[0] : true
+    )
+    .filter((product) => (Brand[0] ? product.brand === Brand[0] : true));
   return (
     <>
       <Navbar />
@@ -148,7 +153,7 @@ const ProductListPage = () => {
                             dark:focus:border-secondary-500 dark:bg-secondary-600 dark:text-secondary-600
                             dark:focus:ring-offset-secondary-800
                          font-bold"
-                            value="Solar-inverters"
+                            value="Solar-Inverter"
                             onChange={handleCheckboxChange}
                           />
                         </div>
@@ -363,7 +368,7 @@ const ProductListPage = () => {
                 </svg>
               </div>
               <div className="grid sm:grid-cols-2  mt-6  xl:grid-cols-3 gap-14">
-                {products.map((product, index) => (
+                {filteredProducts.map((product, index) => (
                   <div key={index} className="group/photo overflow-hidden">
                     <img
                       src={product.imgSrc}
