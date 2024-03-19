@@ -8,37 +8,53 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
 } from "@material-tailwind/react";
 import {
   PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
   ArrowUpTrayIcon,
   PowerIcon,
+  UserIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/solid";
+import AdminActiveUser from "../components/AdminActiveUser";
+import AdminProductList from "../components/AdminProductList";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [filterNav, setFilterNav] = useState(false);
+  const [showActiveUser, setShowActiveUser] = useState(true);
   const [showUploadImage, setShowUploadImage] = useState(false);
+  const [showEditProduct, setShowEditProduct] = useState(false);
+  const navigate = useNavigate();
+  const Navigatetologin = () => navigate("/Login");
 
-  const ChangeOnClick = () => {
-    setShowUploadImage(!showUploadImage);
+  const UploadOnClick = () => {
+    setShowUploadImage(true);
+    setShowEditProduct(false);
+    setShowActiveUser(false);
+  };
+  const EditClick = () => {
+    setShowUploadImage(false);
+    setShowEditProduct(true);
+    setShowActiveUser(false);
   };
 
+  const AllUsers = () => {
+    setShowActiveUser(true);
+    setShowUploadImage(false);
+    setShowEditProduct(false);
+  };
   return (
     <div>
       <Navbar />
       <div className="mt-12">
         <section className=" container mx-auto  ">
-          <div className="mt-32 grid  lg:grid-cols-2 gap-10 ">
+          <div className="mt-[120px] container mx-auto px-4 grid lg:flex gap-x-14 gap-y-44">
             <div
-              className={`lg:w-[40%] fixed top-[60px] bg-white inner-shadow p-9 lg:p-0 left-0 h-full lg:static z-40 ${
+              className={`lg:w-[30%] fixed top-[60px] bg-white inner-shadow p-9 lg:p-0 left-0 h-full lg:static z-40 ${
                 filterNav
-                  ? "opacity-100  translate-x-[0px]"
-                  : "opacity-0  lg:opacity-100   pointer-events-none lg:pointer-events-auto  translate-x-[-10px]  lg:translate-x-[0px]"
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto translate-x-[-10px] lg:translate-x-[0px]"
               }`}
             >
               <div className="flex justify-end lg:hidden mb-5">
@@ -60,7 +76,7 @@ const AdminDashboard = () => {
                   />
                 </svg>
               </div>
-              <div className="w-full"></div>
+
               <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
                 <div className="mb-2 p-4 bg-primary-500 rounded-3xl ">
                   <Typography variant="h5" color="white">
@@ -74,31 +90,26 @@ const AdminDashboard = () => {
                     </ListItemPrefix>
                     Dashboard
                   </ListItem>
-                  <ListItem>
+                  <ListItem onClick={AllUsers}>
                     <ListItemPrefix>
-                      <ShoppingBagIcon className="h-5 w-5" />
+                      <UserIcon className="h-5 w-5" />
                     </ListItemPrefix>
-                    E-Commerce
+                    Active Users
                   </ListItem>
-                  <ListItem onClick={ChangeOnClick}>
+                  <ListItem onClick={UploadOnClick}>
                     <ListItemPrefix>
                       <ArrowUpTrayIcon className="h-5 w-5" />
                     </ListItemPrefix>
                     Upload Product
                   </ListItem>
-                  <ListItem>
+                  <ListItem onClick={EditClick}>
                     <ListItemPrefix>
-                      <UserCircleIcon className="h-5 w-5" />
+                      <PencilSquareIcon className="h-5 w-5" />
                     </ListItemPrefix>
-                    Profile
+                    Edit Products
                   </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <Cog6ToothIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Settings
-                  </ListItem>
-                  <ListItem>
+
+                  <ListItem onClick={Navigatetologin}>
                     <ListItemPrefix>
                       <PowerIcon className="h-5 w-5" />
                     </ListItemPrefix>
@@ -107,7 +118,7 @@ const AdminDashboard = () => {
                 </List>
               </Card>
             </div>
-            <div className="lg:w-[60%]">
+            <div className="lg:w-[70%] ">
               <div className="flex justify-between  lg:justify-end">
                 <div onClick={() => setFilterNav(true)}>
                   <svg
@@ -127,8 +138,18 @@ const AdminDashboard = () => {
                 </div>
               </div>
               {showUploadImage && (
-                <div className="flex flex-center  ">
+                <div className="flex items-start  ">
                   <UploadImage />
+                </div>
+              )}
+              {showEditProduct && (
+                <div className="flex items-start ">
+                  <AdminProductList />
+                </div>
+              )}
+              {showActiveUser && (
+                <div className="flex items-start  ">
+                  <AdminActiveUser />
                 </div>
               )}
             </div>

@@ -20,6 +20,7 @@ const ProductListPage = () => {
       try {
         const response = await axios.get("http://localhost:4000/api/Products");
         setProducts(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -400,17 +401,6 @@ const ProductListPage = () => {
                       >
                         More Details
                       </button>
-
-                      <a href={product.detailsLink}>
-                        <button
-                          type="button"
-                          className="outline-none inline-flex justify-center items-center group transition-all ease-in duration-150 focus:ring-2 focus:ring-offset-2 hover:shadow-sm disabled:opacity-80 disabled:cursor-not-allowed rounded-full gap-x-2 text-sm px-4 py-2 ring-primary-500 text-white bg-primary-500 hover:bg-primary-600 hover:ring-primary-600
-                dark:ring-offset-slate-800 dark:bg-primary-700 dark:ring-primary-700
-                dark:hover:bg-primary-600 dark:hover:ring-primary-600 w-full"
-                        >
-                          More Details
-                        </button>
-                      </a>
                     </div>
                   </div>
                 ))}
